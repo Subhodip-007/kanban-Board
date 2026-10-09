@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>KanBan</title>
+</head>
+<body>
+
+<main class="h-screen w-full bg-black flex flex-col">
+    <section class="addTaskModule hidden h-full w-full absolute backdrop-blur-2xl ">
+        <form action="" class="inputForm h-75 w-105 bg-zinc-600 rounded-2xl flex flex-col items-center gap-4 p-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <input type="text" placeholder="Enter Task Title"class="inputTitle border rounded-xl w-fit p-4">
+            <textarea name="" id="taskdescpinput" placeholder="Task Description" class="inputdescp  max-h-20 border rounded-xl w-fit p-4"></textarea>
+            <button class=" formaddBtn border rounded-xl w-fit px-5 py-2 bg-amber-300 text-black">Add</button>
+        </form>
+    </section>
+
+    <!-- Navbar -->
+    <nav class="h-16 w-full flex items-center justify-between px-6 text-white font-mono">
+        <h1 class="text-2xl font-bold">KanBan</h1>
+
+        <button class="addTaskBtn px-4 py-2 bg-zinc-900 rounded-xl hover:bg-zinc-700 transition">
+            Add Task
+        </button>
+    </nav>
+
+    <!-- Board -->
+    <section class="flex-1 flex gap-5 bg-zinc-800 p-6">
+
+        <!-- Todo -->
+        <div id="Todo" class="flex flex-col flex-1 bg-blue-300 rounded-xl p-5">
+
+            <div class="flex justify-between mb-4">
+                <h1 class="font-bold text-lg">Todo</h1>
+                <span class="count">1</span>
+            </div>
+
+            <div class="tododrop flex-1 bg-black rounded-xl p-4 flex flex-col gap-3 overflow-y-auto transition-all duration-200">
+
+              
+
+            </div>
+
+        </div>
+
+        <!-- In Progress -->
+        <div id="In-process" class="flex flex-col flex-1 bg-blue-400 rounded-xl p-5">
+
+            <div class="flex justify-between mb-4">
+                <h1 class="font-bold text-lg">In Progress</h1>
+                <span class="count">0</span>
+            </div>
+
+            <div class="inprogdrop flex-1 bg-black rounded-xl p-4 flex flex-col gap-3 transition-all duration-200 overflow-y-auto">
+
+            </div>
+
+        </div>
+
+        <!-- Completed -->
+        <div id="completed" class="flex flex-col flex-1 bg-blue-500 rounded-xl p-5">
+
+            <div class="flex justify-between mb-4">
+                <h1 class="font-bold text-lg">Completed</h1>
+                <span class="count">0</span>
+            </div>
+
+            <div class=" completedrop flex-1 flex flex-col gap-3 bg-black rounded-xl p-4 transition-all duration-200 overflow-y-auto">
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
