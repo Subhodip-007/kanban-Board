@@ -1,78 +1,153 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link
+
+    <link
         rel="icon"
         type="image/jpeg"
         href="https://i.pinimg.com/736x/a8/3e/3d/a83e3ddaf5e1194bf9ea4c36db65dc0f.jpg"
     >
+
     <link rel="stylesheet" href="./style.css">
     <title>KANBAN BOARD</title>
 </head>
+
 <body>
 
-<main class="h-screen w-full bg-black flex flex-col">
-    <section class="addTaskModule hidden h-full w-full absolute backdrop-blur-2xl ">
-        <form action="" class="inputForm h-75 w-105 bg-zinc-600 rounded-2xl flex flex-col items-center gap-4 p-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <input type="text" placeholder="Enter Task Title"class="inputTitle border rounded-xl w-fit p-4">
-            <textarea name="" id="taskdescpinput" placeholder="Task Description" class="inputdescp  max-h-20 border rounded-xl w-fit p-4"></textarea>
-            <button class=" formaddBtn border rounded-xl w-fit px-5 py-2 bg-amber-300 text-black">Add</button>
+<main class="min-h-screen w-full bg-[#f0efeb] text-[#143be0] flex flex-col">
+
+    <!-- ADD TASK MODAL -->
+    <section class="addTaskModule hidden h-full w-full fixed inset-0 z-50 bg-[#171d32]/30 backdrop-blur-md">
+
+        <form action=""
+            class="inputForm w-[90%] max-w-[420px] bg-[#f0efeb] border-2 border-[#143be0] flex flex-col items-center gap-5 p-8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[8px_8px_0px_#143be0]">
+
+            <div class="w-full flex justify-between items-center border-b-2 border-[#143be0] pb-4">
+                <h2 class="text-xl font-bold uppercase tracking-tight">New Task</h2>
+                <span class="text-[#ef4136] text-xs">01 / CREATE</span>
+            </div>
+
+            <input
+                type="text"
+                placeholder="Enter Task Title"
+                class="inputTitle w-full bg-transparent border-b-2 border-[#143be0] outline-none p-4 text-[#143be0] placeholder:text-[#143be0]/50 focus:border-[#ef4136]"
+            >
+
+            <textarea
+                name=""
+                id="taskdescpinput"
+                placeholder="Task Description"
+                class="inputdescp w-full min-h-[100px] max-h-40 bg-transparent border-2 border-[#143be0] outline-none p-4 text-[#143be0] placeholder:text-[#143be0]/50 resize-y focus:border-[#ef4136]"
+            ></textarea>
+
+            <button
+                class="formaddBtn w-full border-2 border-[#143be0] bg-[#143be0] text-white py-3 uppercase tracking-widest text-sm font-bold hover:bg-transparent hover:text-[#143be0] transition-all duration-300"
+            >
+                Add Task +
+            </button>
+
         </form>
     </section>
 
-    <!-- Navbar -->
-    <nav class="h-16 w-full flex items-center justify-between px-6 text-white font-mono">
-        <h1 class="text-2xl font-bold">KanBan</h1>
 
-        <button class="addTaskBtn px-4 py-2 bg-zinc-900 rounded-xl hover:bg-zinc-700 transition">
-            Add Task
+    <!-- NAVBAR -->
+    <nav class="min-h-[85px] w-full flex items-center justify-between px-6 md:px-[3.5%] bg-[#f0efeb] border-b-[3px] border-[#143be0]">
+
+        <div class="flex items-center gap-3">
+            <h1 class="text-3xl font-extrabold tracking-tighter text-[#143be0]">
+                KanBan<span class="text-[#ef4136]">.</span>
+            </h1>
+
+            <span class="hidden sm:block text-[10px] tracking-widest uppercase text-[#ef4136] border-l border-[#143be0] pl-3">
+                Workspace / 001
+            </span>
+        </div>
+
+        <button class="addTaskBtn px-6 py-3 bg-[#143be0] text-white text-xs font-bold tracking-widest uppercase border-2 border-[#143be0] hover:bg-transparent hover:text-[#143be0] transition-all duration-300">
+            + Add Task
         </button>
+
     </nav>
 
-    <!-- Board -->
-    <section class="flex-1 flex gap-5 bg-zinc-800 p-6">
 
-        <!-- Todo -->
-        <div id="Todo" class="flex flex-col flex-1 bg-blue-300 rounded-xl p-5">
+    <!-- BOARD -->
+    <section class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-0 bg-[#f0efeb] px-5 md:px-[3.5%] py-8">
 
-            <div class="flex justify-between mb-4">
-                <h1 class="font-bold text-lg">Todo</h1>
-                <span class="count">1</span>
+        <!-- TODO -->
+        <div id="Todo"
+            class="flex flex-col min-w-0 min-h-[550px] bg-[#e9ecff] border-2 border-[#143be0] p-4 md:p-5">
+
+            <div class="flex justify-between items-center mb-5 pb-4 border-b border-[#143be0]">
+
+                <div>
+                    <p class="text-[10px] text-[#ef4136] tracking-widest mb-1">01 / BACKLOG</p>
+                    <h1 class="font-bold text-xl uppercase tracking-tight text-[#143be0]">
+                        Todo
+                    </h1>
+                </div>
+
+                <span class="count min-w-8 h-8 flex items-center justify-center border border-[#143be0] rounded-full text-sm font-bold text-[#143be0]">
+                    1
+                </span>
+
             </div>
 
-            <div class="tododrop h-[500px] shrink-0 bg-black rounded-xl p-4 flex flex-col gap-3 overflow-y-auto transition-all duration-200">
-
-              
-
-            </div>
-
-        </div>
-
-        <!-- In Progress -->
-        <div id="In-process" class="flex flex-col flex-1 bg-blue-400 rounded-xl p-5">
-
-            <div class="flex justify-between mb-4">
-                <h1 class="font-bold text-lg">In Progress</h1>
-                <span class="count">0</span>
-            </div>
-
-            <div class="inprogdrop flex-1 bg-black rounded-xl p-4 flex flex-col gap-3 transition-all duration-200 overflow-y-auto">
+            <div class="tododrop flex-1 min-h-[420px] max-h-[65vh] bg-white/50 border border-dashed border-[#143be0]/50 p-3 flex flex-col gap-3 overflow-y-auto transition-all duration-200">
 
             </div>
 
         </div>
 
-        <!-- Completed -->
-        <div id="completed" class="flex flex-col flex-1 bg-blue-500 rounded-xl p-5">
 
-            <div class="flex justify-between mb-4">
-                <h1 class="font-bold text-lg">Completed</h1>
-                <span class="count">0</span>
+        <!-- IN PROGRESS -->
+        <div id="In-process"
+            class="flex flex-col min-w-0 min-h-[550px] bg-[#e4eaff] border-2 border-[#143be0] p-4 md:p-5">
+
+            <div class="flex justify-between items-center mb-5 pb-4 border-b border-[#143be0]">
+
+                <div>
+                    <p class="text-[10px] text-[#ef4136] tracking-widest mb-1">02 / ACTIVE</p>
+                    <h1 class="font-bold text-xl uppercase tracking-tight text-[#143be0]">
+                        In Progress
+                    </h1>
+                </div>
+
+                <span class="count min-w-8 h-8 flex items-center justify-center border border-[#143be0] rounded-full text-sm font-bold text-[#143be0]">
+                    0
+                </span>
+
             </div>
 
-            <div class=" completedrop flex-1 flex flex-col gap-3 bg-black rounded-xl p-4 transition-all duration-200 overflow-y-auto">
+            <div class="inprogdrop flex-1 min-h-[420px] max-h-[65vh] bg-white/50 border border-dashed border-[#143be0]/50 p-3 flex flex-col gap-3 overflow-y-auto transition-all duration-200">
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPLETED -->
+        <div id="completed"
+            class="flex flex-col min-w-0 min-h-[550px] bg-[#e6f1ec] border-2 border-[#143be0] p-4 md:p-5">
+
+            <div class="flex justify-between items-center mb-5 pb-4 border-b border-[#143be0]">
+
+                <div>
+                    <p class="text-[10px] text-[#ef4136] tracking-widest mb-1">03 / FINISHED</p>
+                    <h1 class="font-bold text-xl uppercase tracking-tight text-[#143be0]">
+                        Completed
+                    </h1>
+                </div>
+
+                <span class="count min-w-8 h-8 flex items-center justify-center border border-[#143be0] rounded-full text-sm font-bold text-[#143be0]">
+                    0
+                </span>
+
+            </div>
+
+            <div class="completedrop flex-1 min-h-[420px] max-h-[65vh] bg-white/50 border border-dashed border-[#143be0]/50 p-3 flex flex-col gap-3 overflow-y-auto transition-all duration-200">
 
             </div>
 
@@ -82,14 +157,17 @@
 
 </main>
 
+
 <script src="script.js"></script>
+
 <script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js")
-        .catch(console.error);
-    });
-  }
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("./sw.js")
+                .catch(console.error);
+        });
+    }
 </script>
+
 </body>
 </html>
